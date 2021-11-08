@@ -69,7 +69,7 @@ The car features that you can modify to reach the maximum distance are the follo
 
 Please consult the corresponding classes to understand how those features are expressed and use in the program.
 
-### Challenge execution
+### Score computation
 
 To start the simulation of the challenge, just run the `python3 main.py` Python module. You must also activate the python virtual environment with `source penv/bin/activate`.
 
@@ -80,24 +80,15 @@ the score of this generation.
 - To smoothen the results, 5 games are launched after each other.
 Your final score is the average of the different games' scores.
 
-For reproductibility of the results, you can also parametrize the seeds for:
+At the end of the 5 games, a plot will be shown, with your results for the 5 games.
 
-- the terrain with `python3 main.py --seed_terrain <int>`
 
-- the car with `python3 main.py --seed_car <int>`
+## Installation and execution
 
-During the contest, the seed will thus be fixed.
-
-For better performance, you can also:
-
-- disable the UI  with `python3 main.py --no_UI`
-
-- and/or the performance plot with `python3 main.py --no_plot`
-
-## Installation
+### Installation
 
 To install the project, first clone the repository with the following command:
-``` shell
+```shell
 git clone --recurse-submodules https://github.com/ClubINFO-INGI-UCLouvain/INGI-Dakar-2K21-Challenge.git
 ```
 
@@ -106,3 +97,24 @@ inside the project directory:
 ```shell
 ./install.sh
 ```
+
+### Execution
+
+To run the challenge simulation, you can simply run the `main.py` Python module in the `src` directory,
+with the following command:
+
+```shell
+python3 src/main.py [--seed_terrain SEED] [--seed_car SEED] [--no_UI] [--no_plot]
+```
+
+The command line arguments, all optional, are the following:
+- `--seed_terrain SEED` (with `SEED` an integer): sets the seed for the random generation of the game terrain to `SEED`,
+for reproducibility of the simulations
+- `--seed_car SEED` (with `SEED` an integer): sets the seed for the random generation
+of the first generation of cars to `SEED`, for reproducibility of the simulations
+- `--no_UI`: does not show the graphical interface of the game, which drastically speeds up the simulations
+- `--no_plot`: does not show the plot of the games' result at the end of all the games
+
+Note that, for the contest, the seeds will be fixed for equity among the groups.
+
+There is also a hidden argument, maybe you can try to find it :wink:
